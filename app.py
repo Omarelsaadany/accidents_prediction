@@ -16,6 +16,10 @@ app = FastAPI()
 pickle_in = open("traffic_pred.pkl","rb")
 predict_acc=pickle.load(pickle_in)
 
+@app.get('/')
+def index():
+    return {'message': 'Hello, welcome to my traffic accident prediction model'}
+
 
 @app.post('/predict')
 def predict_Accis(data:Accis_Pred):
